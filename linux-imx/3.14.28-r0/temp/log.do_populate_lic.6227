@@ -1,0 +1,14 @@
+DEBUG: Executing python function sstate_task_prefunc
+DEBUG: Python function sstate_task_prefunc finished
+DEBUG: Executing python function do_populate_lic
+DEBUG: We need to use a SPDXLICENSEMAP for GPLv2
+DEBUG: Python function do_populate_lic finished
+DEBUG: Executing python function sstate_task_postfunc
+DEBUG: Staging files from /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/license-destdir to /home/kunalk/fsl-release-bspdl/build/tmp/deploy/licenses
+DEBUG: Preparing tree /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/license-destdir for packaging at /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/sstate-build-populate_lic/license-destdir
+DEBUG: Executing python function sstate_hardcode_path
+NOTE: Removing hardcoded paths from sstate package: 'find /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/sstate-build-populate_lic/ \( -name "*.la" -o -name "*-config" -o -name "*_config" \) -type f | xargs grep -l -e '/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto' | tee /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/sstate-build-populate_lic/fixmepath | xargs --no-run-if-empty sed -i -e 's:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto:FIXMESTAGINGDIRHOST:g''
+DEBUG: Python function sstate_hardcode_path finished
+DEBUG: Executing shell function sstate_create_package
+DEBUG: Shell function sstate_create_package finished
+DEBUG: Python function sstate_task_postfunc finished

@@ -1,0 +1,5 @@
+def sysroot_stage_all(d):
+    oe.path.copyhardlinktree(d.expand("/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/usr/src/kernel"), d.expand("/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/sysroot-destdir//usr/src/kernel"))
+
+sysroot_stage_all(d)
+

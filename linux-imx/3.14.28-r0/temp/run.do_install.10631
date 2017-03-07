@@ -1,0 +1,299 @@
+#!/bin/sh
+
+# Emit a useful diagnostic if something fails:
+bb_exit_handler() {
+    ret=$?
+    case $ret in
+    0)  ;;
+    *)  case $BASH_VERSION in
+        "")   echo "WARNING: exit code $ret from a shell command.";;
+        *)    echo "WARNING: ${BASH_SOURCE[0]}:${BASH_LINENO[0]} exit $ret from
+  "$BASH_COMMAND"";;
+        esac
+        exit $ret
+    esac
+}
+trap 'bb_exit_handler' 0
+set -e
+export prefix="/usr"
+export PSEUDO_DISABLED="0"
+export localstatedir="/var"
+export BUILD_CC="gcc "
+export USER="kunalk"
+export CMDLINE_CONSOLE="console=ttyS0"
+export libexecdir="/usr/lib/linux-imx"
+export datadir="/usr/share"
+export STRIP="arm-poky-linux-gnueabi-strip"
+export PKG_CONFIG_SYSROOT_DIR="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto"
+export BUILD_CXX="g++ "
+export LD="arm-poky-linux-gnueabi-ld --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto "
+export ARCH="arm"
+export bindir="/usr/bin"
+export TARGET_CXXFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types"
+export BUILD_LDFLAGS="-L/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/lib -L/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/lib -Wl,-rpath-link,/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/lib -Wl,-rpath-link,/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/lib -Wl,-rpath,/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/lib -Wl,-rpath,/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/lib -Wl,-O1"
+unset TARGET_ARCH
+export STRINGS="arm-poky-linux-gnueabi-strings"
+export BUILD_LD="ld "
+export oldincludedir="/usr/include"
+export PSEUDO_PREFIX="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr"
+export BUILD_CCLD="gcc "
+export BUILD_CFLAGS="-isystem/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/include -O2 -pipe"
+export PSEUDO_LOCALSTATEDIR="/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/pseudo/"
+export docdir="/usr/share/doc"
+export infodir="/usr/share/info"
+export base_prefix=""
+export CC="arm-poky-linux-gnueabi-gcc  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto"
+export TARGET_LDFLAGS="-Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed"
+export TERM="xterm"
+export CPPFLAGS=""
+export BUILD_CPP="cpp "
+export RANLIB="arm-poky-linux-gnueabi-ranlib"
+export base_sbindir="/sbin"
+export CXX="arm-poky-linux-gnueabi-g++  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto"
+export systemd_unitdir="/lib/systemd"
+export FC="arm-poky-linux-gnueabi-gfortran  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto"
+export OS="linux-gnueabi"
+export BUILD_RANLIB="ranlib"
+export BUILD_FC="gfortran "
+export PSEUDO_NOSYMLINKEXP="1"
+export AS="arm-poky-linux-gnueabi-as "
+export AR="arm-poky-linux-gnueabi-ar"
+export BUILD_CPPFLAGS="-isystem/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/include"
+export BUILD_AR="ar"
+export CPP="arm-poky-linux-gnueabi-gcc -E --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9"
+export mandir="/usr/share/man"
+export sharedstatedir="/com"
+export BUILD_CXXFLAGS="-isystem/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/include -O2 -pipe"
+export OBJCOPY="arm-poky-linux-gnueabi-objcopy"
+export CCACHE_DISABLE="1"
+export servicedir="/srv"
+export PKG_CONFIG_PATH="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto/usr/lib/pkgconfig:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto/usr/share/pkgconfig"
+export LC_ALL="C"
+export TARGET_CPPFLAGS=""
+export PKG_CONFIG_DIR="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto/usr/lib/pkgconfig"
+export LDFLAGS="-Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed"
+export BUILD_NM="nm"
+export sysconfdir="/etc"
+export CCLD="arm-poky-linux-gnueabi-gcc  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto"
+export base_libdir="/lib"
+export MAKE="make"
+export LOGNAME="kunalk"
+export PATH="/home/kunalk/fsl-release-bspdl/sources/poky/scripts:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/bin/arm-poky-linux-gnueabi:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto/usr/bin/crossscripts:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/sbin:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/bin:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/sbin:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/bin:/home/kunalk/fsl-release-bspdl/sources/poky/scripts:/home/kunalk/fsl-release-bspdl/sources/poky/bitbake/bin:/home/kunalk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export TARGET_CFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types"
+export base_bindir="/bin"
+export includedir="/usr/include"
+export HOME="/home/kunalk"
+export PKG_CONFIG_LIBDIR="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto/usr/lib/pkgconfig"
+unset MACHINE
+export sbindir="/usr/sbin"
+export CFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types"
+export BUILD_AS="as "
+export OBJDUMP="arm-poky-linux-gnueabi-objdump"
+unset DISTRO
+export CROSS_COMPILE="arm-poky-linux-gnueabi-"
+export exec_prefix="/usr"
+export PKG_CONFIG_DISABLE_UNINSTALLED="yes"
+export libdir="/usr/lib"
+export nonarch_base_libdir="/lib"
+export SHELL="/bin/bash"
+export PSEUDO_PASSWD="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux"
+export CCACHE_DIR="/home/kunalk"
+export PATCH_GET="0"
+export CXXFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types -fvisibility-inlines-hidden"
+export NM="arm-poky-linux-gnueabi-nm"
+export UBOOT_ARCH="arm"
+export BUILD_STRIP="strip"
+do_install() {
+    kernel_do_install
+	install -d /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/etc/modules-load.d/ /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/etc/modprobe.d/
+	if test -n "imx6dl-sabreauto.dtb imx6dl-sabreauto-gpmi-weim.dtb imx6dl-sabreauto-ecspi.dtb  imx6dl-sabreauto-flexcan1.dtb "; then
+		for DTB in imx6dl-sabreauto.dtb imx6dl-sabreauto-gpmi-weim.dtb imx6dl-sabreauto-ecspi.dtb  imx6dl-sabreauto-flexcan1.dtb ; do
+			if echo ${DTB} | grep -q '/dts/'; then
+				bbwarn "${DTB} contains the full path to the the dts file, but only the dtb name should be used."
+				DTB=`basename ${DTB} | sed 's,\.dts$,.dtb,g'`
+			fi
+			DTB_BASE_NAME=`basename ${DTB} .dtb`
+			DTB_NAME=`echo zImage--3.14.28-r0-imx6dlsabreauto-20170104130301 | sed "s/imx6dlsabreauto/${DTB_BASE_NAME}/g"`
+			DTB_SYMLINK_NAME=`echo zImage-imx6dlsabreauto | sed "s/imx6dlsabreauto/${DTB_BASE_NAME}/g"`
+			DTB_PATH="/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/git/arch/arm/boot/dts/${DTB}"
+			oe_runmake ${DTB}
+			if [ ! -e "${DTB_PATH}" ]; then
+				DTB_PATH="/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/git/arch/arm/boot/${DTB}"
+			fi
+			install -m 0644 ${DTB_PATH} /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/boot/devicetree-${DTB_SYMLINK_NAME}.dtb
+		done
+	fi
+
+}
+
+bbwarn() {
+	echo "WARNING: $*"
+
+}
+
+kernel_do_install() {
+	#
+	# First install the modules
+	#
+	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS MACHINE
+	if (grep -q -i -e '^CONFIG_MODULES=y$' .config); then
+		oe_runmake DEPMOD=echo INSTALL_MOD_PATH="/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image" modules_install
+		rm "/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/lib/modules/3.14.28-1.0.0_ga+g91cf351/build"
+		rm "/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/lib/modules/3.14.28-1.0.0_ga+g91cf351/source"
+		# If the kernel/ directory is empty remove it to prevent QA issues
+		rmdir --ignore-fail-on-non-empty "/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/lib/modules/3.14.28-1.0.0_ga+g91cf351/kernel"
+	else
+		bbnote "no modules to install"
+	fi
+
+	#
+	# Install various kernel output (zImage, map file, config, module support files)
+	#
+	install -d /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/boot
+	install -d /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/boot
+	install -m 0644 arch/arm/boot/zImage /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/boot/zImage-3.14.28-1.0.0_ga+g91cf351
+	install -m 0644 System.map /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/boot/System.map-3.14.28-1.0.0_ga+g91cf351
+	install -m 0644 .config /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/boot/config-3.14.28-1.0.0_ga+g91cf351
+	install -m 0644 vmlinux /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/boot/vmlinux-3.14.28-1.0.0_ga+g91cf351
+	[ -e Module.symvers ] && install -m 0644 Module.symvers /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/boot/Module.symvers-3.14.28-1.0.0_ga+g91cf351
+	install -d /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/etc/modules-load.d
+	install -d /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/etc/modprobe.d
+
+	#
+	# Support for external module building - create a minimal copy of the
+	# kernel source tree.
+	#
+	kerneldir=/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/usr/src/kernel
+	install -d $kerneldir
+	mkdir -p /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/lib/modules/3.14.28-1.0.0_ga+g91cf351
+	ln -sf /usr/src/kernel "/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/image/lib/modules/3.14.28-1.0.0_ga+g91cf351/build"
+
+	#
+	# Store the kernel version in sysroots for module-base.bbclass
+	#
+
+	echo "3.14.28-1.0.0_ga+g91cf351" > $kerneldir/kernel-abiversion
+
+	#
+	# Store kernel image name to allow use during image generation
+	#
+
+	echo "zImage--3.14.28-r0-imx6dlsabreauto-20170104130301" >$kerneldir/kernel-image-name
+
+	#
+	# Copy the entire source tree. In case an external build directory is
+	# used, copy the build directory over first, then copy over the source
+	# dir. This ensures the original Makefiles are used and not the
+	# redirecting Makefiles in the build directory.
+	#
+	find . -depth -not -name "*.cmd" -not -name "*.o" -not -name "*.so.dbg" -not -name "*.so" -not -path "./Documentation*" -not -path "./source*" -not -path "./.*" -print0 | cpio --null -pdlu $kerneldir
+	cp .config $kerneldir
+	if [ "/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/git" != "/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/git" ]; then
+		pwd="$PWD"
+		cd "/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/git"
+		find . -depth -not -path "./Documentation*" -not -path "./.*" -print0 | cpio --null -pdlu $kerneldir
+		cd "$pwd"
+	fi
+
+	# Test to ensure that the output file and image type are not actually
+	# the same file. If hardlinking is used, they will be the same, and there's
+	# no need to install.
+	! [ arch/arm/boot/zImage -ef $kerneldir/zImage ] && install -m 0644 arch/arm/boot/zImage $kerneldir/zImage
+	install -m 0644 System.map $kerneldir/System.map-3.14.28-1.0.0_ga+g91cf351
+
+	# Dummy Makefile so the clean below works
+        mkdir $kerneldir/Documentation
+        touch $kerneldir/Documentation/Makefile
+
+	#
+	# Clean and remove files not needed for building modules.
+	# Some distributions go through a lot more trouble to strip out
+	# unecessary headers, for now, we just prune the obvious bits.
+	#
+	# We don't want to leave host-arch binaries in /sysroots, so
+	# we clean the scripts dir while leaving the generated config
+	# and include files.
+	#
+	oe_runmake -C $kerneldir CC="arm-poky-linux-gnueabi-gcc  -mno-thumb-interwork -marm" LD="arm-poky-linux-gnueabi-ld.bfd  " clean _mrproper_scripts
+
+	# hide directories that shouldn't have their .c, s and S files deleted
+	for d in tools scripts lib; do
+		mv $kerneldir/$d $kerneldir/.$d
+	done
+
+	# delete .c, .s and .S files, unless we hid a directory as .<dir>. This technique is
+	# much faster than find -prune and -exec
+	find $kerneldir -not -path '*/\.*' -type f -name "*.[csS]" -delete
+
+	# put the hidden dirs back
+	for d in tools scripts lib; do
+		mv $kerneldir/.$d $kerneldir/$d
+	done
+
+	# As of Linux kernel version 3.0.1, the clean target removes
+	# arch/powerpc/lib/crtsavres.o which is present in
+	# KBUILD_LDFLAGS_MODULE, making it required to build external modules.
+	if [ arm = "powerpc" ]; then
+		cp -l arch/powerpc/lib/crtsavres.o $kerneldir/arch/powerpc/lib/crtsavres.o
+	fi
+
+	# Necessary for building modules like compat-wireless.
+	if [ -f include/generated/bounds.h ]; then
+		cp -l include/generated/bounds.h $kerneldir/include/generated/bounds.h
+	fi
+	if [ -d arch/arm/include/generated ]; then
+		mkdir -p $kerneldir/arch/arm/include/generated/
+		cp -flR arch/arm/include/generated/* $kerneldir/arch/arm/include/generated/
+	fi
+
+	# Remove the following binaries which cause strip or arch QA errors
+	# during do_package for cross-compiled platforms
+	bin_files="arch/powerpc/boot/addnote arch/powerpc/boot/hack-coff \
+	           arch/powerpc/boot/mktree scripts/kconfig/zconf.tab.o \
+		   scripts/kconfig/conf.o scripts/kconfig/kxgettext.o"
+	for entry in $bin_files; do
+		rm -f $kerneldir/$entry
+	done
+
+	# kernels <2.6.30 don't have $kerneldir/tools directory so we check if it exists before calling sed
+	if [ -f $kerneldir/tools/perf/Makefile ]; then
+		# Fix SLANG_INC for slang.h
+		sed -i 's#-I/usr/include/slang#-I=/usr/include/slang#g' $kerneldir/tools/perf/Makefile
+	fi
+
+}
+
+oe_runmake() {
+	oe_runmake_call "$@" || die "oe_runmake failed"
+
+}
+
+oe_runmake_call() {
+	bbnote make -j 4  "$@"
+	make -j 4  "$@"
+
+}
+
+die() {
+	bbfatal "$*"
+
+}
+
+bbnote() {
+	echo "NOTE: $*"
+
+}
+
+bbfatal() {
+	echo "ERROR: $*"
+	exit 1
+
+}
+
+cd '/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/git'
+do_install
+
+# cleanup
+ret=$?
+trap '' 0
+exit $?

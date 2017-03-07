@@ -1,0 +1,16 @@
+PN: linux-imx
+PV: 3.14.28
+PR: r0
+PKGV: 3.14.28
+PKGR: r0
+LICENSE: GPLv2
+DESCRIPTION_kernel-module-brcmutil: brcmutil kernel module; Broadcom 802.11n wireless LAN driver utilities.
+SUMMARY_kernel-module-brcmutil: brcmutil kernel module
+RDEPENDS_kernel-module-brcmutil: kernel-3.14.28-1.0.0_ga+g91cf351
+SECTION: base
+PKG_kernel-module-brcmutil: kernel-module-brcmutil
+FILES_kernel-module-brcmutil: /lib/modules/3.14.28-1.0.0_ga+g91cf351/kernel/drivers/net/wireless/brcm80211/brcmutil/brcmutil.ko /etc/modules-load.d/brcmutil.conf /etc/modprobe.d/brcmutil.conf
+pkg_postinst_kernel-module-brcmutil: #!/bin/sh\nif [ -z "$D" ]; then\n\tdepmod -a 3.14.28-1.0.0_ga+g91cf351\nelse\n\t# image.bbclass will call depmodwrapper after everything is installed,\n\t# no need to do it here as well\n\t:\nfi\n\n
+pkg_postrm_kernel-module-brcmutil: #!/bin/sh\nif [ -z "$D" ]; then\n\tdepmod -a 3.14.28-1.0.0_ga+g91cf351\nelse\n\tdepmodwrapper -a -b $D 3.14.28-1.0.0_ga+g91cf351\nfi\n\n
+FILES_INFO: {"/lib/modules/3.14.28-1.0.0_ga+g91cf351/kernel/drivers/net/wireless/brcm80211/brcmutil/brcmutil.ko": 11580}
+PKGSIZE_kernel-module-brcmutil: 11580

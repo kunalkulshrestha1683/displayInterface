@@ -1,0 +1,117 @@
+#!/bin/sh
+
+# Emit a useful diagnostic if something fails:
+bb_exit_handler() {
+    ret=$?
+    case $ret in
+    0)  ;;
+    *)  case $BASH_VERSION in
+        "")   echo "WARNING: exit code $ret from a shell command.";;
+        *)    echo "WARNING: ${BASH_SOURCE[0]}:${BASH_LINENO[0]} exit $ret from
+  "$BASH_COMMAND"";;
+        esac
+        exit $ret
+    esac
+}
+trap 'bb_exit_handler' 0
+set -e
+export prefix="/usr"
+export STRIP="arm-poky-linux-gnueabi-strip"
+export localstatedir="/var"
+export BUILD_CC="gcc "
+export CMDLINE_CONSOLE="console=ttyS0"
+export libexecdir="/usr/lib/linux-imx"
+export datadir="/usr/share"
+export PKG_CONFIG_SYSROOT_DIR="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto"
+export BUILD_CXX="g++ "
+export TARGET_CXXFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types"
+export includedir="/usr/include"
+export BUILD_LDFLAGS="-L/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/lib -L/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/lib -Wl,-rpath-link,/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/lib -Wl,-rpath-link,/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/lib -Wl,-rpath,/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/lib -Wl,-rpath,/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/lib -Wl,-O1"
+export STRINGS="arm-poky-linux-gnueabi-strings"
+export oldincludedir="/usr/include"
+export BUILD_CCLD="gcc "
+export PSEUDO_LOCALSTATEDIR="/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/pseudo/"
+export CC="arm-poky-linux-gnueabi-gcc  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto"
+export CPPFLAGS=""
+export RANLIB="arm-poky-linux-gnueabi-ranlib"
+export CXX="arm-poky-linux-gnueabi-g++  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto"
+export BUILD_NM="nm"
+export BUILD_AR="ar"
+export mandir="/usr/share/man"
+export servicedir="/srv"
+export LD="arm-poky-linux-gnueabi-ld --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto "
+export LC_ALL="C"
+export PKG_CONFIG_DIR="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto/usr/lib/pkgconfig"
+export sysconfdir="/etc"
+export CCLD="arm-poky-linux-gnueabi-gcc  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto"
+export base_bindir="/bin"
+export PKG_CONFIG_LIBDIR="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto/usr/lib/pkgconfig"
+export sbindir="/usr/sbin"
+export CFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types"
+export TARGET_LDFLAGS="-Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed"
+export PKG_CONFIG_DISABLE_UNINSTALLED="yes"
+export PATCH_GET="0"
+export CXXFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types -fvisibility-inlines-hidden"
+export NM="arm-poky-linux-gnueabi-nm"
+export BUILD_LD="ld "
+export PSEUDO_DISABLED="0"
+export USER="kunalk"
+export LDFLAGS="-Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed"
+export MAKE="make"
+unset TARGET_ARCH
+export CCACHE_DIR="/home/kunalk"
+export OBJCOPY="arm-poky-linux-gnueabi-objcopy"
+export PSEUDO_PREFIX="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr"
+export BUILD_CPP="cpp "
+export BUILD_CFLAGS="-isystem/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/include -O2 -pipe"
+export docdir="/usr/share/doc"
+export infodir="/usr/share/info"
+export base_prefix=""
+export ARCH="arm"
+export TERM="xterm"
+export base_sbindir="/sbin"
+export systemd_unitdir="/lib/systemd"
+export OS="linux-gnueabi"
+export PKG_CONFIG_PATH="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto/usr/lib/pkgconfig:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto/usr/share/pkgconfig"
+export PSEUDO_NOSYMLINKEXP="1"
+export AS="arm-poky-linux-gnueabi-as "
+export AR="arm-poky-linux-gnueabi-ar"
+export BUILD_CPPFLAGS="-isystem/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/include"
+export CPP="arm-poky-linux-gnueabi-gcc -E --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9"
+export BUILD_CXXFLAGS="-isystem/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/include -O2 -pipe"
+export CCACHE_DISABLE="1"
+export FC="arm-poky-linux-gnueabi-gfortran  -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto"
+export BUILD_FC="gfortran "
+export TARGET_CPPFLAGS=""
+export exec_prefix="/usr"
+export BUILD_RANLIB="ranlib"
+export base_libdir="/lib"
+export LOGNAME="kunalk"
+export PATH="/home/kunalk/fsl-release-bspdl/sources/poky/scripts:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/bin/arm-poky-linux-gnueabi:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto/usr/bin/crossscripts:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/sbin:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/bin:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/sbin:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/bin:/home/kunalk/fsl-release-bspdl/sources/poky/scripts:/home/kunalk/fsl-release-bspdl/sources/poky/bitbake/bin:/home/kunalk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export TARGET_CFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types"
+export HOME="/home/kunalk"
+unset MACHINE
+export BUILD_AS="as "
+export sharedstatedir="/com"
+export OBJDUMP="arm-poky-linux-gnueabi-objdump"
+export CROSS_COMPILE="arm-poky-linux-gnueabi-"
+unset DISTRO
+export libdir="/usr/lib"
+export nonarch_base_libdir="/lib"
+export bindir="/usr/bin"
+export SHELL="/bin/bash"
+export UBOOT_ARCH="arm"
+export BUILD_STRIP="strip"
+export PSEUDO_PASSWD="/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/imx6dlsabreauto:/home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux"
+BUILDSPEC() {
+rpmbuild --nodeps --short-circuit --target imx6dlsabreauto-poky-linux-gnueabi --buildroot /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/package --define '_topdir /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0' --define '_rpmdir /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/deploy-rpms/imx6dlsabreauto' --define '_builddir /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/git' --define '_build_name_fmt %%{NAME}-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm' --define '_use_internal_dependency_generator 0' --define '__find_requires %{nil}' --define '__find_provides %{nil}' --define '_unpackaged_files_terminate_build 0' --define 'debug_package %{nil}' --define '_rpmfc_magic_path /home/kunalk/fsl-release-bspdl/build/tmp/sysroots/x86_64-linux/usr/share/misc/magic.mgc' --define '_tmppath /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0' -bb /home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/linux-imx.spec
+
+}
+
+cd '/home/kunalk/fsl-release-bspdl/build/tmp/work/imx6dlsabreauto-poky-linux-gnueabi/linux-imx/3.14.28-r0/git'
+BUILDSPEC
+
+# cleanup
+ret=$?
+trap '' 0
+exit $?
